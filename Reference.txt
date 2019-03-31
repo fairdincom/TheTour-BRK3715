@@ -1,0 +1,6 @@
+https://www.terraform.io/docs/providers/azurerm/guides/2.0-upgrade-guide.html
+https://docs.microsoft.com/ko-kr/azure/terraform/terraform-backend
+https://docs.microsoft.com/en-us/azure/terraform/
+https://azure.microsoft.com/ko-kr/solutions/devops/terraform/
+https://github.com/terraform-providers/terraform-provider-azurerm
+https://docs.microsoft.com/ko-kr/azure/storage/blobs/storage-upload-process-images?tabs=dotnet
