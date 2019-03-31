@@ -53,7 +53,6 @@ module "servicebusnamespacesample" {
   name                = "${replace(local.resource_long_name, "{0}", "sbname")}"
   location            = "${local.location}"
   resource_group      = "${module.resourcegroupsample.name}"
-  sku                 = "Standard"
   tags                = "${local.tags}"
 }
 

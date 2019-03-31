@@ -18,7 +18,7 @@ variable "resource_location_code" {
 variable "resource_environment" {
   type              = "string"
   description       = "Resource Enviornment"
-  default           = "developer"
+  default           = "development"
 }
 
 variable "resource_environment_code" {
