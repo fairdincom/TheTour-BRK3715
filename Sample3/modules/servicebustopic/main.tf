@@ -6,13 +6,6 @@ locals {
   name                = "${var.name}"
   resource_group      = "${var.resource_group}"
   namespace_name      = "${var.namespace_name}"
-  tags                = "${merge( 
-                          map(
-                            "service", "demo",
-                            "session", "BRK3715"
-                          ),
-                          "${var.tags}"
-                        )}"
 }
 
 resource "azurerm_servicebus_topic" "servicebustopic" {
@@ -21,6 +14,4 @@ resource "azurerm_servicebus_topic" "servicebustopic" {
   namespace_name      = "${local.namespace_name}"
 
   enable_partitioning = true
-
-  tags                = "${local.tags}"
 }

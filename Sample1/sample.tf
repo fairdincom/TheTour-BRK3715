@@ -72,8 +72,4 @@ resource "azurerm_servicebus_topic" "sample" {
   namespace_name      = "${azurerm_servicebus_namespace.sample.name}"
 
   enable_partitioning = true
-  
-  tags = {
-    enviroment        = "development"
-  }
 }

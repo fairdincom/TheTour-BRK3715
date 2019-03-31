@@ -11,8 +11,3 @@ variable "namespace_name" {
   type          = "string"
   description   = "service bus namespace name"
 }
-
-variable "tags" {
-  type          = "map"
-  description   = "Tags for service bus topic"
-}

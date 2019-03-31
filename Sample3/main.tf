@@ -65,5 +65,4 @@ module "servicebustopicsample" {
   name                = "${replace(local.resource_long_name, "{0}", sbtoipc)}"
   resource_group_name = "${module.resourcegroupsample.name}"
   namespace_name      = "${module.servicebusnamespacesample.name}"
-  tags                = "${local.tags}"
 }
