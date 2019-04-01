@@ -3,15 +3,15 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "sample" {
-  name              = "ignite-seoul-sample"
-  location          = "southeastasia"
+  name              = "thetour-brk3715"
+  location          = "koreacentral"
   tags = {
     enviroment      = "development"
   }
 }
 
 resource "azurerm_storage_account" "sample" {
-  name                     = "igniteseoulfunctionapps"
+  name                     = "thetourbrk3715st"
   resource_group_name      = "${azurerm_resource_group.sample.name}"
   location                 = "${azurerm_resource_group.sample.location}"
   
@@ -29,7 +29,7 @@ resource "azurerm_storage_account" "sample" {
 }
 
 resource "azurerm_app_service_plan" "sample" {
-  name                = "ignite-seoul-functions-service-plan"
+  name                = "thetour-brk3715-cosplan"
   location            = "${azurerm_resource_group.sample.location}"
   resource_group_name = "${azurerm_resource_group.sample.name}"
 
@@ -44,7 +44,7 @@ resource "azurerm_app_service_plan" "sample" {
 }
 
 resource "azurerm_function_app" "sample" {
-  name                      = "ignite-seoul-functions"
+  name                      = "thetour-brk3715-fncapp"
   location                  = "${azurerm_resource_group.sample.location}"
   resource_group_name       = "${azurerm_resource_group.sample.name}"
   app_service_plan_id       = "${azurerm_app_service_plan.sample.id}"
@@ -69,7 +69,7 @@ resource "azurerm_function_app" "sample" {
 }
 
 resource "azurerm_servicebus_namespace" "sample" {
-  name                = "ignite-seoul-sevicebus-namespace"
+  name                = "thetour-brk3715-svcbus"
   location            = "${azurerm_resource_group.sample.location}"
   resource_group_name = "${azurerm_resource_group.sample.name}"
   sku                 = "Standard"
@@ -80,7 +80,7 @@ resource "azurerm_servicebus_namespace" "sample" {
 }
 
 resource "azurerm_servicebus_topic" "sample" {
-  name                = "ignite-sevicebus-topic"
+  name                = "thetour-brk3715-svcbus-topic"
   resource_group_name = "${azurerm_resource_group.sample.name}"
   namespace_name      = "${azurerm_servicebus_namespace.sample.name}"
 
