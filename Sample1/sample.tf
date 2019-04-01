@@ -1,5 +1,5 @@
 provider "azurerm" {
-  version = "=1.20.0"
+  version = "=1.23.0"
 }
 
 resource "azurerm_resource_group" "sample" {
@@ -49,6 +49,19 @@ resource "azurerm_function_app" "sample" {
   resource_group_name       = "${azurerm_resource_group.sample.name}"
   app_service_plan_id       = "${azurerm_app_service_plan.sample.id}"
   storage_connection_string = "${azurerm_storage_account.sample.primary_connection_string}"
+
+  https_only                        = true
+  version                           = "~2"
+
+  site_config {
+      use_32_bit_worker_process     = false
+  }
+
+  app_settings {
+      AzureWebJobsSecretStorageType = "Blob"
+      FUNCTIONS_APP_EDIR_MODE       = "ReadOnly"
+      DUNCTIONS_WORKER_RUNTIME      = "dotnet"
+  }
 
   tags = {
     enviroment              = "development"

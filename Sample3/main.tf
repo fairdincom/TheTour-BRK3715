@@ -1,8 +1,9 @@
 terraform {
   backend "azurerm" {
-    storage_account_name  = "igniteseoultstate"
-    container_name        = "tstate"
+    storage_account_name  = "storage_account_name"
+    container_name        = "container_name"
     key                   = "brk3715.terraform.tfstate"
+    access_key            = "access_key"
   }
 }
 
