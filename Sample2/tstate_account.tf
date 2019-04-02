@@ -10,7 +10,7 @@ variable "resource_name" {
 variable "resource_location" {
   type          = "string"
   description   = "resource location"
-  default       = "southeastasia"  
+  default       = "koreacentral"
 }
 
 
