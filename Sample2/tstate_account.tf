@@ -15,13 +15,14 @@ variable "resource_location" {
 
 
 locals {
-  location                = "${var.resource_name}"
-  resource_short_name     = "${replace(local.resource_name, "-", "")}"
+  resource_long_name      = "${var.resource_name}-tstate"
+  location                = "${var.resource_location}"
+  resource_short_name     = "${replace(local.resource_long_name, "-", "")}"
 
 }
 
 resource "azurerm_resource_group" "tstate" {
-  name     = "${local.resource_name}"
+  name     = "${local.resource_long_name}"
   location = "${local.location}"
 }
 
@@ -40,7 +41,7 @@ resource "azurerm_storage_account" "tstate" {
 
 resource "azurerm_storage_container" "tstate" {
   name                  = "tstate"
-  resource_group_name   = "${local.resource_name}"
+  resource_group_name   = "${local.resource_long_name}"
   storage_account_name  = "${azurerm_storage_account.tstate.name}"
   container_access_type = "private"
 }
