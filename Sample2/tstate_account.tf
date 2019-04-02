@@ -15,20 +15,19 @@ variable "resource_location" {
 
 
 locals {
-  location                = "${var.resource_location}"
-  resource_long_name      = "${var.resource_name}-tfstate"
-  resource_short_name     = "${replace(local.resource_long_name, "-", "")}"
+  location                = "${var.resource_name}"
+  resource_short_name     = "${replace(local.resource_name, "-", "")}"
 
 }
 
 resource "azurerm_resource_group" "tstate" {
-  name     = "${local.resource_long_name}"
+  name     = "${local.resource_name}"
   location = "${local.location}"
 }
 
 resource "azurerm_storage_account" "tstate" {
   name                     = "${local.resource_short_name}"
-  resource_group_name      = "${local.resource_long_name}"
+  resource_group_name      = "${azurerm_resource_group.tstate.name}"
   location                 = "${local.location}"
   account_tier             = "Standard"
   account_replication_type = "LRS"
@@ -41,7 +40,7 @@ resource "azurerm_storage_account" "tstate" {
 
 resource "azurerm_storage_container" "tstate" {
   name                  = "tstate"
-  resource_group_name   = "${local.resource_long_name}"
+  resource_group_name   = "${local.resource_name}"
   storage_account_name  = "${azurerm_storage_account.tstate.name}"
   container_access_type = "private"
 }
