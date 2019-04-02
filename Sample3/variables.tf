@@ -6,13 +6,13 @@ variable "resource_group_name" {
 variable "resource_location" {
   type              = "string"
   description       = ""
-  default           = "southeastasia"
+  default           = "koreacentral"
 }
 
 variable "resource_location_code" {
   type              = "string"
   description       = "Resource location code"
-  default           = "sea"
+  default           = "koc"
 }
 
 variable "resource_environment" {
